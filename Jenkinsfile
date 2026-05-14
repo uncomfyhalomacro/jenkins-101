@@ -13,6 +13,8 @@ pipeline {
                 echo "Building.."
                 sh '''
                 cd myapp
+                python3 -m venv .venv
+                . .venv/bin/activate
                 pip install -r requirements.txt
                 '''
             }
@@ -22,6 +24,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 cd myapp
+                . .venv/bin/activate
                 python3 hello.py
                 python3 hello.py --name=Soc
                 '''
