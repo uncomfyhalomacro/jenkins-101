@@ -13,5 +13,5 @@ Then run the following.
 
 ```bash
 docker pull alpine/socat:latest
-docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/podman/podman.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/podman/podman.soc
+docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/run/user/1000/podman/podman.sock
 ```
